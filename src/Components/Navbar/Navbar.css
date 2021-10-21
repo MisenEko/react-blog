@@ -17,6 +17,11 @@ nav {
     font-size: 22px;
 }
 
+.list a {
+    text-decoration: none;
+    color: #f1f1f1;
+}
+
 .items {
     margin:0 15px;
     text-transform: uppercase;
