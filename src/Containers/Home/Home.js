@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useEffect, useState} from 'react';
 import {getArticles} from '../../redux/articles/articleReducer';
 import {v4 as uuidV4} from 'uuid'
+import { Link } from 'react-router-dom';
 
 
 export default function Home() {
@@ -29,7 +30,15 @@ export default function Home() {
                     return (
                         <Cards key={uuidV4()}>
                             <h2>{item.title}</h2>
-                            <a href='#'>Lire l'article</a>
+                            <Link to={{
+                                pathname: `articles/${item.title.replace(/\s+/g, '-').trim()}`,
+                                state: {
+                                    title: item.title,
+                                    body: item.body
+                                }
+                            }}>
+                                Lire l'article
+                            </Link>
                         </Cards>
                     )
                 })}
